@@ -20,4 +20,4 @@ jobs:
       env:
         JOELY_SURGE_TOKEN: ${{ secrets.JOELY_SURGE_TOKEN }}
       run: |
-        npx surge ./ joely-primerparcialdevs.surge.sh --token $JOELY_SURGE_TOKEN
+        npx surge ./joely-primerparcialdevs.surge.sh --token $JOELY_SURGE_TOKEN
