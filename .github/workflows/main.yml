@@ -1,0 +1,23 @@
+name: Despliegue a surge.sh
+
+on:
+  push:
+    branches:
+      - main  # Triggers on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: npm install  # Adjust if you're using Yarn or another package manager
+
+    - name: Deploy to Surge
+      env:
+        JOELY_SURGE_TOKEN: ${{ secrets.JOELY_SURGE_TOKEN }}
+      run: |
+        npx surge ./src joely-primerparcialdevs.surge.sh --token $JOELY_SURGE_TOKEN
